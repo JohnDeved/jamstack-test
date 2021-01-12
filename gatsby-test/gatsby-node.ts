@@ -3,8 +3,8 @@ import fetch from 'node-fetch'
 import { IPost } from './src/types/common'
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions: { createPage } }) => {
-  const res = await fetch('http://localhost:3003/posts')
-  const posts: IPost[] = await res.json()
+  const posts = await fetch('http://localhost:3003/posts')
+    .then<IPost[]>(data => data.json())
 
   posts.forEach(post => {
     createPage({

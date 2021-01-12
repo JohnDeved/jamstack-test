@@ -1,4 +1,3 @@
-import { graphql } from 'gatsby'
 import { IntlContext, Link } from 'gatsby-plugin-intl'
 import React from 'react'
 import { Helmet } from 'react-helmet'

@@ -31,6 +31,7 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -46,6 +47,14 @@ module.exports = {
         path: './src/pages/'
       },
       __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'stubs',
+        path: './src/stubs/'
+      },
+      __key: 'stubs'
     },
     {
       resolve: 'gatsby-plugin-intl',

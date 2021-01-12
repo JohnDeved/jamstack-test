@@ -1,0 +1,24 @@
+[
+    {
+        "url": "/",
+        "i18n": {
+            "de": {
+                "title": "Home"
+            },
+            "en": {
+                "title": "Home"
+            }
+        }
+    },
+    {
+        "url": "/posts",
+        "i18n": {
+            "de": {
+                "title": "Posts"
+            },
+            "en": {
+                "title": "Beiträge"
+            }
+        }
+    }
+]

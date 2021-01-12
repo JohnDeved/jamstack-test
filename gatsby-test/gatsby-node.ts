@@ -6,8 +6,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions: { create
   const res = await fetch('http://localhost:3003/posts')
   const posts: IPost[] = await res.json()
 
-  console.log(posts)
-
   posts.forEach(post => {
     createPage({
       path: `/post/${post.id}/`,

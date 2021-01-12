@@ -11,6 +11,12 @@ module.exports = {
     'gatsby-plugin-ts-config',
     'gatsby-plugin-offline',
     {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/templates/layout.tsx')
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png'

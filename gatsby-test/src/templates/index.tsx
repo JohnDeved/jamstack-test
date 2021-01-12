@@ -1,7 +1,6 @@
 import { IntlContext, Link } from 'gatsby-plugin-intl'
-import * as React from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
-import Layout from './layout'
 import { IPost } from '../types/common'
 
 import './index.sass'
@@ -22,7 +21,7 @@ const IndexPage: React.FC<IProps> = ({ pageContext: { posts } }) => {
   ))
 
   return (
-    <Layout>
+    <div>
       <Helmet>
         <title>Home</title>
       </Helmet>
@@ -30,7 +29,7 @@ const IndexPage: React.FC<IProps> = ({ pageContext: { posts } }) => {
       <h1>gatsby test</h1>
 
       {postsLinks}
-    </Layout>
+    </div>
   )
 }
 

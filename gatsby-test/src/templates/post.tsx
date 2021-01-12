@@ -4,7 +4,6 @@ import { IPost } from '../types/common'
 import { Helmet } from 'react-helmet'
 
 import './post.sass'
-import Layout from './layout'
 
 interface IProps {
   pageContext: {
@@ -17,14 +16,14 @@ const Post: React.FC<IProps> = ({ pageContext: { post } }) => {
   const postI18n = post.i18n[intl.locale]
 
   return (
-    <Layout>
+    <div>
       <Helmet>
         <title>{postI18n.title}</title>
       </Helmet>
 
       <h1>{postI18n.title}</h1>
       <div>{postI18n.content}</div>
-    </Layout>
+    </div>
   )
 }
 

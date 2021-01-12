@@ -17,6 +17,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-custom-api',
+      options: {
+        url: 'http://localhost:3003/links',
+        rootKey: 'links'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png'

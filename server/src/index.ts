@@ -38,4 +38,31 @@ app.get('/posts', (req, res) => {
     ])
 })
 
+app.get('/links', (req, res) => {
+    return res.json([
+        {
+            url: '/',
+            i18n: {
+                de: {
+                    title: 'Home',
+                },
+                en: {
+                    title: 'Home',
+                }
+            }
+        },
+        {
+            url: '/posts',
+            i18n: {
+                de: {
+                    title: 'Posts',
+                },
+                en: {
+                    title: 'Beiträge',
+                }
+            }
+        }
+    ])
+})
+
 app.listen(3003)

@@ -15,6 +15,12 @@ interface IProps {
 const IndexPage: React.FC<IProps> = ({ pageContext: { posts } }) => {
   const intl = React.useContext(IntlContext)
 
+  const postsLinks = posts.map(post => (
+    <div key={post.id}>
+      <Link to={`/post/${post.id}/`}>{post.i18n[intl.locale].title}</Link>
+    </div>
+  ))
+
   return (
     <Layout>
       <Helmet>
@@ -23,13 +29,7 @@ const IndexPage: React.FC<IProps> = ({ pageContext: { posts } }) => {
 
       <h1>gatsby test</h1>
 
-      {
-        posts.map(post => (
-          <div key={post.id}>
-            <Link to={`/post/${post.id}/`}>{post.i18n[intl.locale].title}</Link>
-          </div>
-        ))
-      }
+      {postsLinks}
     </Layout>
   )
 }

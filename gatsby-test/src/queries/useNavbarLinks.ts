@@ -10,31 +10,30 @@ export interface ILink {
 }
 
 interface ILinkQuery {
-  allLinksJson: {
+  allLinks: {
     nodes: ILink[]
   }
 }
 
 export default function useNavbarLinks () {
-  // const data = useStaticQuery<ILinkQuery>(graphql`
-  //   query {
-  //     allLinks {
-  //       nodes {
-  //         url
-  //         i18n {
-  //           en {
-  //             title
-  //           }
-  //           de {
-  //             title
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+  const data = useStaticQuery<ILinkQuery>(graphql`
+    query {
+      allLinks {
+        nodes {
+          i18n {
+            de {
+              title
+            }
+            en {
+              title
+            }
+          }
+          url
+        }
+      }
+    }
+  `)
 
-  // const { allLinksJson: { nodes: links } } = data
-  // return links
-  return [] as ILink[]
+  const { allLinks: { nodes: links } } = data
+  return links
 }

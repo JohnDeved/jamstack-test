@@ -1,19 +1,17 @@
-import React, { useContext } from 'react'
-import { IntlContext } from 'gatsby-plugin-intl'
-import { IPost } from '../types/common'
+import React from 'react'
+import { IPageContext, IPost } from '../types/common'
 import { Helmet } from 'react-helmet'
 
 import './post.sass'
 
 interface IProps {
-  pageContext: {
+  pageContext: IPageContext & {
     post: IPost
   }
 }
 
-const Post: React.FC<IProps> = ({ pageContext: { post } }) => {
-  const intl = useContext(IntlContext)
-  const postI18n = post.i18n[intl.locale]
+const Post: React.FC<IProps> = ({ pageContext: { post, language } }) => {
+  const postI18n = post.i18n[language]
 
   return (
     <div>

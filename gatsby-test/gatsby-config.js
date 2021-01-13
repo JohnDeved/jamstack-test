@@ -16,13 +16,13 @@ module.exports = {
         component: require.resolve('./src/templates/layout.tsx')
       }
     },
-    {
-      resolve: 'gatsby-source-custom-api',
-      options: {
-        url: 'http://localhost:3003/links',
-        rootKey: 'links'
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-custom-api',
+    //   options: {
+    //     url: 'http://localhost:3003/links',
+    //     rootKey: 'links'
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -31,7 +31,12 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-transformer-json`, // dont stub in production in the future
+      options: {
+        typeName: ({ node }) => node.name,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

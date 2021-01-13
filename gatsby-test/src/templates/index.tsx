@@ -1,22 +1,20 @@
-import { IntlContext, Link } from 'gatsby-plugin-intl'
+import { Link } from 'gatsby-plugin-intl'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { IPost } from '../types/common'
+import { IPageContext, IPost } from '../types/common'
 
 import './index.sass'
 
 interface IProps {
-  pageContext: {
+  pageContext: IPageContext & {
     posts: IPost[]
   }
 }
 
-const IndexPage: React.FC<IProps> = ({ pageContext: { posts } }) => {
-  const intl = React.useContext(IntlContext)
-
+const IndexPage: React.FC<IProps> = ({ pageContext: { posts, language } }) => {
   const postsLinks = posts.map(post => (
     <div key={post.id}>
-      <Link to={`/post/${post.id}/`}>{post.i18n[intl.locale].title}</Link>
+      <Link to={`/post/${post.id}/`}>{post.i18n[language].title}</Link>
     </div>
   ))
 

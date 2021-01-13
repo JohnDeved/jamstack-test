@@ -23,7 +23,7 @@
     },
     "include": [
       "src",
-      "gatsby-config.js",
+      "gatsby-config.ts",
       "gatsby-node.ts"
     ]
   }

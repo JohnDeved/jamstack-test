@@ -1,24 +1,22 @@
 [
     {
+        "language": "de",
         "url": "/",
-        "i18n": {
-            "de": {
-                "title": "Home"
-            },
-            "en": {
-                "title": "Home"
-            }
-        }
+        "title": "Home"
     },
     {
+        "language": "en",
+        "url": "/",
+        "title": "Home"
+    },
+    {
+        "language": "de",
         "url": "/posts",
-        "i18n": {
-            "de": {
-                "title": "Posts"
-            },
-            "en": {
-                "title": "Beiträge"
-            }
-        }
+        "title": "Beiträge"
+    },
+    {
+        "language": "en",
+        "url": "/posts",
+        "title": "Posts"
     }
 ]

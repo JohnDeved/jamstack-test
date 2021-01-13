@@ -2,11 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 export interface ILink {
   url: string
-  i18n: {
-    [key in 'en' | 'de' | string]: {
-      title: string
-    }
-  }
+  title: string
+  language: string
 }
 
 interface ILinkQuery {
@@ -15,25 +12,21 @@ interface ILinkQuery {
   }
 }
 
-export default function useNavbarLinks () {
+export default function useNavbarLinks (language: string) {
   const data = useStaticQuery<ILinkQuery>(graphql`
-    query {
-      allLinks {
+    query ($language: String) {
+      allLinks(filter: {language: {eq: $language}}) {
         nodes {
-          i18n {
-            de {
-              title
-            }
-            en {
-              title
-            }
-          }
           url
+          title
+          language
         }
       }
     }
   `)
 
+  console.log(data) // still returns all data?
+
   const { allLinks: { nodes: links } } = data
-  return links
+  return links.filter(link => link.language === language) // filter with js for now
 }

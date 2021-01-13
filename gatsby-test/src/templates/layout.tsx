@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Layout: React.FC<IProps> = ({ children, pageContext: { language: currentLanguage, intl } }) => {
-  const linksData = useNavbarLinks()
+  const linksData = useNavbarLinks(currentLanguage)
 
   const languageButtons = intl.languages.map(language => {
     const isCurrentLang = currentLanguage === language
@@ -22,7 +22,7 @@ const Layout: React.FC<IProps> = ({ children, pageContext: { language: currentLa
 
   const links = linksData.map(link => (
     <div key={link.url}>
-      <Link to={link.url}>{link.i18n[currentLanguage].title}</Link>
+      <Link to={link.url}>{link.title}</Link>
     </div>
   ))
 

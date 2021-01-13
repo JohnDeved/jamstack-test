@@ -2,6 +2,17 @@ import { GatsbyNode } from 'gatsby'
 import fetch from 'node-fetch'
 import { IPost } from './src/types/common'
 
+// query MyQuery {
+//   allLinks {
+//     group(field: language) {
+//       nodes {
+//         language
+//         url
+//       }
+//     }
+//   }
+// }
+
 export const createPages: GatsbyNode['createPages'] = async ({ actions: { createPage } }) => {
   const posts = await fetch('http://localhost:3003/posts')
     .then<IPost[]>(data => data.json())
